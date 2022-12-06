@@ -5,13 +5,12 @@ import javax.swing.*;
 import javax.swing.table.*;
 
 public class Edit extends javax.swing.JFrame {
-
     public DefaultListModel list = new DefaultListModel();
     public Connect query = new Connect();
 
     public Edit() {
         initComponents();
-
+        
         listSelect();
         jInvisibleIdLabel.setVisible(false);
     }
@@ -39,6 +38,7 @@ public class Edit extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jEmployeeList = new javax.swing.JList<>();
         jInvisibleIdLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -92,6 +92,13 @@ public class Edit extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jEmployeeList);
 
+        jButton1.setText("Изтрий");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEditPanelLayout = new javax.swing.GroupLayout(jEditPanel);
         jEditPanel.setLayout(jEditPanelLayout);
         jEditPanelLayout.setHorizontalGroup(
@@ -107,36 +114,35 @@ public class Edit extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46)
-                .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jInvisibleIdLabel)
-                    .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jInvisibleIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jEditPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCityField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEditPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTitleField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jEditPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jCityField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jEditPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTitleField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jEditPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jEditPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jFirstNameField))))
+                            .addComponent(jLastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jEditPanelLayout.createSequentialGroup()
-                            .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jReportsToBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCountryField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jFirstNameField)))
+                    .addGroup(jEditPanelLayout.createSequentialGroup()
+                        .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jReportsToBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCountryField, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jEditPanelLayout.setVerticalGroup(
@@ -145,7 +151,7 @@ public class Edit extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jInvisibleIdLabel))
+                    .addComponent(jInvisibleIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
@@ -176,6 +182,8 @@ public class Edit extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton2))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -205,29 +213,29 @@ public class Edit extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 639, Short.MAX_VALUE)
+            .addGap(0, 673, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 361, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(10, 10, 10)
-                    .addComponent(jEditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jEditPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void listSelect() {
+    public void listSelect(){
         list.clear();
-
+        
         ArrayList<String> data = new ArrayList<String>();
         String[] columns = {"EmployeeId", "FirstName", "LastName"};
         data = query.select(columns, "Employees");
@@ -238,12 +246,8 @@ public class Edit extends javax.swing.JFrame {
         }
         jEmployeeList.setModel(list);
     }
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-
+    
+    
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         Home frame = new Home();
@@ -267,12 +271,12 @@ public class Edit extends javax.swing.JFrame {
         String[] row = cleanRow.split(" ");
 
         ArrayList<String> data = new ArrayList<String>();
-        String[] columns = {"EmployeeId", "FirstName", "LastName", "Title", "City", "Country", "ReportsTo"};
+        String[] columns = {"EmployeeId", "FirstName", "LastName", "Title", "City", "Country",  "ReportsTo"};
         data = query.selectWhere(columns, new int[]{0}, new String[]{row[0]}, "Employees");
         String[] employee = data.get(0).split("---");
 
         jInvisibleIdLabel.setText(employee[0]);
-
+        //        jInvisibleIdLabel.setVisible(true);
         jFirstNameField.setText(employee[1]);
         jLastNameField.setText(employee[2]);
         jTitleField.setText(employee[3]);
@@ -284,14 +288,42 @@ public class Edit extends javax.swing.JFrame {
         for (int i = 0; i < jReportsToBox.getItemCount(); i++) {
             String check = String.valueOf(jReportsToBox.getItemAt(i));
             String[] arrCheck = check.split(" ");
-            if (employee[6].equals(arrCheck[0])) {
+            if(employee[6].equals(arrCheck[0])){
                 jReportsToBox.setSelectedIndex(i);
             }
         }
-
     }//GEN-LAST:event_jEmployeeListMouseReleased
 
-    public void comboBoxSelect() {
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String fName = jFirstNameField.getText();
+        String lName = jLastNameField.getText();
+        String title = jTitleField.getText();
+        String city = jCityField.getText();
+        String country = jCountryField.getText();
+        String reportsTo = String.valueOf(jReportsToBox.getSelectedItem());
+
+        String[] row = reportsTo.split(" ");
+        String reportsToId = row[0];
+        String[] columns = {"FirstName", "LastName", "Title", "City", "Country", "ReportsTo"};
+        String[] values = {fName, lName, title, city, country, reportsToId};
+        query.update(columns,
+            values,
+            "EmployeeId",
+            Integer.parseInt(jInvisibleIdLabel.getText()),
+            "Employees");
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(jInvisibleIdLabel.getText().length() > 0){
+            query.delete("EmployeeId", 
+                        Integer.parseInt(jInvisibleIdLabel.getText()), 
+                        "Employees");
+            listSelect();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void comboBoxSelect(){
         jReportsToBox.addItem("");
         ArrayList<String> data = new ArrayList<String>();
         String[] columns = {"EmployeeId", "FirstName"};
@@ -301,7 +333,6 @@ public class Edit extends javax.swing.JFrame {
             jReportsToBox.addItem(row[0] + " " + row[1]);
         }
     }
-
     /**
      * @param args the command line arguments
      */
@@ -338,6 +369,7 @@ public class Edit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JTextField jCityField;
     private javax.swing.JTextField jCountryField;
